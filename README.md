@@ -1,2 +1,2 @@
 # SpeedTester
-WET project by Varad Bhatnagar and Nitin Bisht
+Front End and Back End for a internet speed testing webapp .
