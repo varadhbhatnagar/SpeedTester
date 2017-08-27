@@ -2,6 +2,42 @@
 <html>
 
 <head>
+<script type="text/javascript">
+	var animate, left=0, imgObj=null;
+
+function init(){
+
+   imgObj = document.getElementById('myImage');
+   imgObj.style.position= 'absolute';
+   imgObj.style.top = '0px';
+   imgObj.style.left = '-30px';
+   imgObj.style.visibility='hidden';
+
+   moveRight();
+}
+
+function moveRight(){
+    left = parseInt(imgObj.style.left, 10);
+
+    if (700 >= left) {
+        imgObj.style.left = (left + 10) + 'px';
+        imgObj.style.visibility='visible';
+
+        animate = setTimeout(function(){moveRight();},20); // call moveRight in 20msec
+
+        //stopanimate = setTimeout(moveRight,20);
+    } else {
+        stop();
+    }
+    //f();
+}
+
+function stop(){
+   clearTimeout(animate);
+}
+
+window.onload = function() {init();};
+</script>
 
 <link href='https://fonts.googleapis.com/css?family=Amatica SC' rel='stylesheet'>
 
@@ -9,6 +45,14 @@
 
 body {
     font-family: 'Amatica SC';font-size: 32px; 
+  
+}
+div.fixed {
+    position: fixed;
+    left: 210px;
+    top: 20px;
+    width: 150px;
+    height: 100px;
 }
 
 hr {
@@ -25,8 +69,12 @@ hr {
 </style>
 
 </head>
+<div class="fixed">
+<img id="myImage" src="rocket.png" />
+</div>
 
-<body background='wormz.png'>
+
+<body background='wormz.png' >
 
 <h1 style='color:#E75A18;margin:10px;'>SpeedTester</h1>
 <hr>
