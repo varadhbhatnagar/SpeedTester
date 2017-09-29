@@ -49,6 +49,70 @@ window.onload = function() {init();};
 
 <style>
 
+      .speedometer {
+  width: 200px;
+  height: 100px;
+  position: relative;
+  border-radius: 200px 200px 0 0;
+  margin: 20px auto;
+}
+.speedometer:after {
+  background-color: #fff;
+  width: 20px;
+  height: 10px;
+  left: 50%;
+  margin-left: -10px;
+  border-radius: 20px 20px 0 0;
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+}
+.speedometer > .pointer {
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 50%;
+  bottom: 2px;
+  animation: speed-1 5s alternate infinite ease-in-out;
+}
+.speedometer > .pointer:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-style: solid;
+  border-width: 90px 0 0 3px;
+  border-color: #fff transparent transparent;
+  width: 0;
+  height: 0;
+}
+.speedometer.speed-1 {
+  background-color: #ed1c24;
+}
+.speedometer.speed-1 > .pointer {
+  animation-name: speed-1;
+}
+
+
+@keyframes speed-1 {
+  from {
+    -moz-transform: rotate(100deg);
+    -ms-transform: rotate(100deg);
+    -webkit-transform: rotate(100deg);
+    transform: rotate(100deg);
+  }
+  to {
+    -moz-transform: rotate(300deg);
+    -ms-transform: rotate(300deg);
+    -webkit-transform: rotate(300deg);
+    transform: rotate(300deg);
+  }
+}
+
+
+
 body {
     font-family: 'Amatica SC';font-size: 32px; 
   
@@ -97,8 +161,37 @@ section.gradient button.active {
   box-shadow: inset 0 0 0 1px #27496d,inset 0 5px 30px #193047;
 }
 
+.speedometer.speed-2 {
+  background-color: #f59122;
+}
+.speedometer.speed-2 > .pointer {
+  animation-name: speed-2;
+}
+
+@keyframes speed-2 {
+  from {
+    -moz-transform: rotate(100deg);
+    -ms-transform: rotate(100deg);
+    -webkit-transform: rotate(100deg);
+    transform: rotate(100deg);
+  }
+  to {
+    -moz-transform: rotate(300deg);
+    -ms-transform: rotate(300deg);
+    -webkit-transform: rotate(300deg);
+    transform: rotate(300deg);
+  }
+}
+
+p.ex1 {
+    font: bold 15px arial, sans-serif;
+}
+
+
 </style>
 
+
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
 </head>
 <div class="fixed">
 <img id="myImage" src="rocket.png" />
@@ -109,9 +202,8 @@ section.gradient button.active {
 
 <h1 style='color:#E75A18;margin:10px;'>SpeedTester</h1>
 
-<hr>
 
-</body>
+<hr>
 <div>
 
 <section class="gradient">
@@ -130,6 +222,26 @@ What's My Internet Speed Today?
 </div>
 <div id="Res"  style="margin-left: 468px; margin-right:500px;  background-color: white">
 </div>
+
+
+ <div class="speedometer speed-1" style="margin-left: 100px; margin-top: -180px;">
+  <div class="pointer"></div>
+</div>
+
+<div class="speedometer speed-2" style="margin-right: 100px; margin-top: -120px">
+  <div class="pointer"></div>
+</div>
+
+
+<br><br><br><br><br>
+<hr>
+<div id="div1" style="font-size: 20px; text-align: right;">
+<p class="ex1">Made by Varad Bhatnagar and Nitin Bisht.</p>
+</div>
+
+
+</body>
+
   
 
 
